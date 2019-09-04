@@ -1,0 +1,19 @@
+{
+  "name": "targetcasestudy",
+  "version": "1.0.0",
+  "description": "A program which will tell you how long it is until the next bus on “BUS ROUTE” leaving from “BUS STOP NAME” going “DIRECTION” using the api defined at http://svc.metrotransit.org/.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zygy93/case-study-API-Consumption.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zygy93/case-study-API-Consumption/issues"
+  },
+  "homepage": "https://github.com/Zygy93/case-study-API-Consumption#readme"
+}
