@@ -54,6 +54,6 @@ Which will return and console log the following result:
 
 ## Reflection
 
-* If I had time, I probably would refactor and add in [Inquirer.js](https://github.com/SBoudrias/Inquirer.js/) to have a more interactive command line interface for users or create a front end for the application for users that are uncomfortable with using command line. I should also use [Mocha](https://mochajs.org/) and write some unit testing for the application so this can be used in a production environment.
+* If I had time I would use [Mocha](https://mochajs.org/) and write some unit testing for the application so this can be used in a production environment.
 
 * I would also refactor the app.js and break down the functions into seperate handlers and functions for code readability and simplicity.

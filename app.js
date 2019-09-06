@@ -13,14 +13,14 @@ var verifiedBusStop
 
 inquirer
   .prompt([{
+    
     type: "input",
     name: "busRoute",
     message: "Enter bus route number."
   },
   {
     type: "input",
-    message: "busStopName",
-    name: "stop",
+    name: "busStopName",
     message: "Enter your stop ID on route."
   }, 
   {
@@ -29,9 +29,10 @@ inquirer
     message: "Choose a direction.",
     choices: ["North", "South", new inquirer.Separator(), "East", "West"]
   }
-    ]).then(function(){
+    ]).then(function(response){
+      console.log(response.busRoute, response.busStopName, response.direction)
       try {
-        if (process.argv.length > 5 || !busRoute || !busStopName || !direction) {
+        if (Object.keys(response).length > 3 || !response.busRoute || !response.busStopName || !response.direction) {
           throw new Error('Please enter 3 required parameters: (1) Bus Route, (2) Bus Stop Name, and (3) Direction')
         } else {
           checkBusRoute()
