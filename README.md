@@ -36,7 +36,7 @@ After running this command in the terminal, you will receive a series of prompts
 * Bus Stop Name
 * Direction
 
-you will receive a response response of `x minutes`, where x is the number of minutes until the bus arrives at that stop.
+You will receive a response response of `x minutes`, where x is the number of minutes until the bus arrives at that stop.
 The last bus for the day has already left if there is no output.
 
 ## Example
