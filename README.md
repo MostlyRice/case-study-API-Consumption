@@ -43,7 +43,7 @@ If there is no output that means the last bus for the day has already left.
 
 Use the following example as answers for the prompt:
 ```
-Bus Routes: “METRO Blue Line” 
+Bus Route: “METRO Blue Line” 
 Bus Stop Name: “Target Field Station Platform 1” 
 Direction: “south”
 ```
