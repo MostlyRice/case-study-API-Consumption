@@ -37,7 +37,7 @@ After running this command in the terminal, you will receive a series of prompts
 * Direction
 
 You will receive a response response of `x minutes`, where x is the number of minutes until the bus arrives at that stop.
-The last bus for the day has already left if there is no output.
+If there is no output that means the last bus for the day has already left.
 
 ## Example
 
