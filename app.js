@@ -25,7 +25,7 @@ try {
         .then(findBusRoute)
         .catch(error => requestError(error, 'Bus Route Request Error'))
         .then(checkDirection)
-    }
+    }// End of function
 
     // Finds the bus route description
     function findBusRoute (data) {
@@ -37,7 +37,7 @@ try {
       } else {
         throw new Error('Route not found. Please try again.')
       }
-    }
+    }// End of function
 
     // Checks for the direction, verifies the direction, and then checks for the bus stop name
     function checkDirection () {
