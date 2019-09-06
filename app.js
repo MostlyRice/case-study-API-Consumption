@@ -3,17 +3,9 @@ const fetch = require('node-fetch')
 const Moment = require('moment')
 const inquirer = require("inquirer");
 
-// Global variables
-var busRoute = process.argv[2];
-var busStopName = process.argv[3];
-var direction = process.argv[4];
-var verifiedRoute
-var verifiedDirection
-var verifiedBusStop
-
 inquirer
+  //Prompts the user in the Command Line for input.
   .prompt([{
-    
     type: "input",
     name: "busRoute",
     message: "Enter bus route number."
@@ -26,11 +18,9 @@ inquirer
   {
     type: "input",
     name: "direction",
-    message: "Choose a direction.",
-    choices: ["North", "South", new inquirer.Separator(), "East", "West"]
+    message: "Enter your direction."
   }
     ]).then(function(response){
-      console.log(response.busRoute, response.busStopName, response.direction)
       try {
         if (Object.keys(response).length > 3 || !response.busRoute || !response.busStopName || !response.direction) {
           throw new Error('Please enter 3 required parameters: (1) Bus Route, (2) Bus Stop Name, and (3) Direction')
@@ -49,11 +39,11 @@ inquirer
     
         // Finds the bus route description
         function findBusRoute (data) {
-          var route = data.find(function (item) {
-            return item.Description === busRoute
+          busRoute = data.find(function (item) {
+            return item.Description === response.busRoute
           })
-          if (route) {
-            verifiedRoute = route.Route
+          if (busRoute) {
+            verifiedRoute = busRoute.Route
           } else {
             throw new Error('Route not found. Please try again.')
           }
@@ -62,7 +52,7 @@ inquirer
         // Checks for the direction, verifies the direction, and then checks for the bus stop name
         function checkDirection () {
           if (verifiedRoute) {
-            direction = direction.toUpperCase()
+            direction = response.direction.toUpperCase()
             fetch('https://svc.metrotransit.org/NexTrip/Directions/' + verifiedRoute + '?format=json')
             .then(response => response.json())
             .then(findBusDirection)
@@ -96,9 +86,9 @@ inquirer
         
         // Finds the bus stop name
         function findBusStopName (data) {
-          for (var busStop in data) {
-            if (data[busStop].Text.includes(busStopName)) {
-              verifiedBusStop = data[busStop].Value
+          for (var busStopName in data) {
+            if (data[busStopName].Text.includes(busStopName)) {
+              verifiedBusStop = data[busStopName].Value
             }
           }
           if (!verifiedBusStop) {
