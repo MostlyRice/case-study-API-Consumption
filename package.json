@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Zygy93/case-study-API-Consumption#readme",
   "dependencies": {
+    "moment": "^2.24.0",
     "node-fetch": "^2.6.0"
   }
 }
