@@ -24,28 +24,30 @@ Once the dependencies are installed, you are ready to use the application.
 
 ## Usage
 
-You will need the following parameters:
+To run the application, enter the following in the terminal:
+
+```
+node app.js
+```
+
+After running this command in the terminal, you will receive a series of prompts requiring you to enter in the following parameters:
 
 * Bus Route
 * Bus Stop Name
 * Direction
 
-To run the program, enter the following in the terminal:
-
-```
-node app.js "Bus Route" "Bus Stop Name" "Direction"
-```
-
-After running this commnd in the terminal, you will receive a response of `x minutes`, where x is the number of minutes until the bus arrives at that stop.
-
+you will receive a response response of `x minutes`, where x is the number of minutes until the bus arrives at that stop.
 The last bus for the day has already left if there is no output.
 
 ## Example
 
+Use the following example as answers for the prompt:
 ```
-node app.js “METRO Blue Line” “Target Field Station Platform 1” “south”
+Bus Routes: “METRO Blue Line” 
+Bus Stop Name: “Target Field Station Platform 1” 
+Direction: “south”
 ```
-returns the following result:
+Which will return and console log the following result:
 ```
 8 Minutes
 ```
