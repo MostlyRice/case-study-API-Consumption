@@ -10,13 +10,13 @@ var verifiedRoute
 var verifiedDirection
 var verifiedBusStop
 
+// Only accepts 3 parameters and then checks for the bus route
 try {
     if (process.argv.length > 5 || !busRoute || !busStopName || !direction) {
       throw new Error('Please enter 3 required parameters: (1) Bus Route, (2) Bus Stop Name, and (3) Direction')
     } else {
-      console.log(busRoute, busStopName, direction);
       checkBusRoute()
-    }
+    }// End of function
     
     // Checks if the route is available, verifies the description, and then checks for the direction
     function checkBusRoute () {
