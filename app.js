@@ -1,6 +1,7 @@
 // Dependencies
 const fetch = require('node-fetch')
 const Moment = require('moment')
+const inquirer = require("inquirer");
 
 // Global variables
 var busRoute = process.argv[2];
