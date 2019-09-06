@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Zygy93/case-study-API-Consumption/issues"
   },
-  "homepage": "https://github.com/Zygy93/case-study-API-Consumption#readme"
+  "homepage": "https://github.com/Zygy93/case-study-API-Consumption#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
