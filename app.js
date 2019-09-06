@@ -18,7 +18,7 @@ try {
       checkBusRoute()
     }
     
-
+    // Checks if the route is available, verifies the description, and then checks for the direction
     function checkBusRoute () {
       fetch(`https://svc.metrotransit.org/NexTrip/Routes?format=json`)
         .then(response => response.json())
@@ -27,7 +27,7 @@ try {
         .then(checkDirection)
     }
 
-
+    // Finds the bus route description
     function findBusRoute (data) {
       var route = data.find(function (item) {
         return item.Description === busRoute
@@ -39,7 +39,7 @@ try {
       }
     }
 
-
+    // Checks for the direction, verifies the direction, and then checks for the bus stop name
     function checkDirection () {
       if (verifiedRoute) {
         direction = direction.toUpperCase()
@@ -49,9 +49,9 @@ try {
         .catch(error => requestError(error, 'Direction Request Error'))
         .then(checkBusStopName)
       }
-    }
+    }// End of function
 
-
+    // Finds the bus route direction
     function findBusDirection (data) {
       for (var dir in data) {
         if (data[dir].Text.includes(direction)) {
@@ -61,9 +61,9 @@ try {
       if (!verifiedDirection) {
         throw new Error('Direction not found. Please try again.')
       }
-    }
+    }// End of function
 
-
+    // Checks for the bus stop name, verifies the bus stop name, and then gets the departure times
     function checkBusStopName () {
       if (verifiedRoute && verifiedDirection) {
         fetch('https://svc.metrotransit.org/NexTrip/Stops/' + verifiedRoute + '/' + verifiedDirection + '?format=json')
@@ -72,9 +72,9 @@ try {
         .catch(error => requestError(error, 'Bus Stop Name Request Error'))
         .then(getDepartureTimes)
       }
-    }
+    }// End of function
     
-
+    // Finds the bus stop name
     function findBusStopName (data) {
       for (var busStop in data) {
         if (data[busStop].Text.includes(busStopName)) {
@@ -84,7 +84,9 @@ try {
       if (!verifiedBusStop) {
         throw new Error('Bus stop not found. Please try again.')
       }
-    }
+    }// End of function
+
+    // if we have the Route, Direction, and Bus Stop, we will find the departure time.
     function getDepartureTimes () {
       if (verifiedRoute && verifiedDirection && verifiedBusStop) {
         fetch('https://svc.metrotransit.org/NexTrip/' + verifiedRoute + '/' + verifiedDirection + '/' + verifiedBusStop + '?format=json')
@@ -92,8 +94,9 @@ try {
         .then(findDepartureTimes)
         .catch(error => requestError(error, 'departure times'))
       }
-    }
-  
+    }// End of function
+    
+    // Checks for departure times, verifies the departure times, and then console logs the next departure time
     function findDepartureTimes (data) {
       if (data[0]) {
         if (data[0].Actual) {
@@ -106,11 +109,11 @@ try {
       } else {
         throw new Error('The last bus for the day has already left.')
       }
-    }
+    }// End of function
 
     function requestError (error) {
       console.log(error.message)
-    }
+    }// End of function
   } catch(error) {
     console.log(error.message)
-  }
+  }// End of function
